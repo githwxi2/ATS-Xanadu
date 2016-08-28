@@ -12,7 +12,7 @@
 
 (* ****** ****** *)
 
-staload "./staexp2.sats"
+staload "./../xats/staexp2.sats"
 
 (* ****** ****** *)
 //
