@@ -3,11 +3,21 @@
 # Implementing ATS2 in ATS2
 #
 
-###### beg of [README] ######
+(* ###### ###### ###### ###### ###### *)
 
 HX-2016-08-27: Let us get started!!!
 
-###### end of [README] ######
+(* ###### ###### ###### ###### ###### *)
 
+Some objectives:
 
+1. ATS-Xanadu should be able to boostrap,
+   that is, it should be able to compile itself.
 
+2. ATS-Xanadu should make extensive use of various
+   forms of meta-programming, including
+   codegen2-absrec, codegen2-fprint, etc.
+
+(* ###### ###### ###### ###### ###### *)
+
+############ end of [README] ############
