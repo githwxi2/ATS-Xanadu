@@ -24,20 +24,16 @@ RMF=rm -f
 OUTPUT=OUTPUT
 
 ######
-
+#
 all:: \
 $(OUTPUT)/xats-location_dats.o
-
-######
 #
+libatsopt:: \
+$(OUTPUT)/xats-location_dats.o; $(LDR) -o lib/libatsopt.o $<
 $(OUTPUT)/xats-location_dats.o: \
 $(OUTPUT)/xats-location_dats.c; $(PATSCC) -c -o $@ $<
 $(OUTPUT)/xats-location_dats.c: xats-location/location.dats; $(PATSOPT) -o $@ -d $<
 #
-######
-
-libatsopt:: $(OUTPUT)/xats-location_dats.o; $(LDR) -o libatsopt.o $<
-
 ######
 
 clean:: ; $(RMF) xats/*~
@@ -46,7 +42,7 @@ clean:: ; $(RMF) xats-*/*~
 ######
 
 cleanall:: clean
-cleanall:: ; $(RMF) libatsopt.o
+cleanall:: ; $(RMF) lib/libatsopt.o
 cleanall:: ; $(RMF) $(OUTPUT)/*_?ats.o
 cleanall:: ; $(RMF) $(OUTPUT)/*_?ats.c
 

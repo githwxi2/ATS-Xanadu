@@ -15,11 +15,11 @@ PATSOPT=$(PATSHOME)/bin/patsopt
 
 ######
 
-RMF=rm -f
+all::
 
 ######
 
-all::
+LIBATSOPT_O=./../lib/libatsopt.o
 
 ######
 #
@@ -27,7 +27,7 @@ all:: \
 test-location
 test-location: \
 test-location.dats; \
-$(PATSCC) -verbose -I./.. -o test-location $< ./../libatsopt.o
+$(PATSCC) -verbose -I./.. -o test-location $< $(LIBATSOPT_O)
 #
 regress:: test-location; ./$<
 cleanall:: ; $(RMF) test-location
@@ -37,6 +37,10 @@ cleanall:: ; $(RMF) test-location
 testall:: all
 testall:: regress
 testall:: cleanall
+
+######
+
+RMF=rm -f
 
 ######
 
