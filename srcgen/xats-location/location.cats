@@ -1,5 +1,17 @@
 /* ****** ****** */
 
+/*
+##xatsopt_header()
+*/
+
+/* ****** ****** */
+
+/*
+##xatsopt_set_filename("location.cats")
+*/
+
+/* ****** ****** */
+
 #\
 ifndef \
 XATSOPT_LOCATION_CATS
