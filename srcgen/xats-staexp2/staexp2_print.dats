@@ -16,8 +16,8 @@ staload "./../xats/staexp2.sats"
 
 (* ****** ****** *)
 //
-#ifdef
-CODEGEN
+#if
+defined(CODEGEN)
 #then
 //
 #codegen2
@@ -25,9 +25,10 @@ CODEGEN
   fprint, s2rtbas, fprint_s2rtbas_
 ) (* codegen2 *)
 //
-#else
+#endif // end of [ifdef]
+//
 #if
-defined(XATSOPT)
+defined(COMPILE)
 #then
 //
 #include
@@ -36,7 +37,6 @@ defined(XATSOPT)
 implement
 fprint_s2rtbas(out, x0) = fprint_s2rtbas_<>(out, x0)
 //
-#endif // end of [ifdef]
 #endif // end of [ifdef]
 //
 (* ****** ****** *)

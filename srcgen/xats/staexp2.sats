@@ -7,7 +7,7 @@
 (* ****** ****** *)
 
 (*
-##xatsopt_filename_set("staexp2.sats")
+##xatsopt_set_filename("staexp2.sats")
 *)
 
 (* ****** ****** *)
@@ -26,7 +26,7 @@ datatype s2rtbas =
 ##xatsopt_fprint(s2rtbas)
 *)
 #if
-defined(XATSOPT)
+defined(COMPILE)
 #then
 #include
 "./CODEGEN/staexp2_fprint_s2rtbas_decl.hats"

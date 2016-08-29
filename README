@@ -11,7 +11,7 @@ HX-2016-08-27: Let us get started!!!
 
 Some objectives:
 
-1. ATS-Xanadu should be able to boostrap,
+1. ATS-Xanadu should be able to bootstrap,
    that is, it should be able to compile itself.
 
 2. ATS-Xanadu should make extensive use of various
