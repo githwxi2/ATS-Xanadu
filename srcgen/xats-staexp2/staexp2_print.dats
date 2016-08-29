@@ -7,7 +7,7 @@
 (* ****** ****** *)
 
 (*
-##xatsopt_filename_set("staexp2_print.dats")
+##xatsopt_set_filename("staexp2_print.dats")
 *)
 
 (* ****** ****** *)
