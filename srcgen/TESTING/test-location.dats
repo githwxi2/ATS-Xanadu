@@ -17,6 +17,10 @@ staload "./../xats-location/location.dats"
 //
 (* ****** ****** *)
 
+dynload "./../xats-location/location.dats"
+
+(* ****** ****** *)
+
 implement
 main0(argc, argv) =
 {
@@ -27,13 +31,8 @@ var pos1 : pos_t
 val () = position_initize(pos0)
 val () = position_initize(pos1, 0, 0, 0L)
 //
-val () = println! ("pos0.nrow = ", pos0.nrow())
-val () = println! ("pos0.ncol = ", pos0.ncol())
-val () = println! ("pos0.nchar = ", pos0.nchar())
-//
-val () = println! ("pos1.nrow = ", pos1.nrow())
-val () = println! ("pos1.ncol = ", pos1.ncol())
-val () = println! ("pos1.nchar = ", pos1.nchar())
+val () = println! ("pos0 = ", pos0)
+val () = println! ("pos1 = ", pos1)
 //
 } (* end of [main0] *)
 

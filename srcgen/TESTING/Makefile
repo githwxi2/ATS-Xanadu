@@ -26,8 +26,8 @@ all::
 all:: \
 test-location
 test-location: \
-test-location.dats ; \
-$(PATSCC) -I./.. -o test-location $<
+test-location.dats; \
+$(PATSCC) -verbose -I./.. -o test-location $< ./../libatsopt.o
 #
 regress:: test-location; ./$<
 cleanall:: ; $(RMF) test-location

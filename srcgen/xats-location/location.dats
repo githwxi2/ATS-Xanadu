@@ -12,6 +12,11 @@
 
 (* ****** ****** *)
 //
+#include
+"share/atspre_staload.hats"
+//
+(* ****** ****** *)
+//
 staload
 UN = "prelude/SATS/unsafe.sats"
 //
@@ -26,7 +31,7 @@ implement
 position_initize_dummy
   (pos0) =
 (
-  position_initize(pos0, 0, 0, ~1L)
+  position_initize(pos0, ~1, ~1, ~1L)
 ) (* position_initize_dummy *)
 
 (* ****** ****** *)
@@ -48,6 +53,37 @@ $UN.castview2void_at{pos_t}(view@pos0)
 //
 } (* end of [position_initize_nrow_ncol_nchar] *)
 
+(* ****** ****** *)
+//
+implement
+print_position
+  (pos) =
+  fprint_position(stdout_ref, pos)
+implement
+prerr_position
+  (pos) =
+  fprint_position(stderr_ref, pos)
+//
+implement
+fprint_position
+  (out, pos) = let
+//
+val nrow = pos.nrow()
+val ncol = pos.ncol()
+val nchar = pos.nchar()
+//
+in
+//
+ignoret(
+$extfcall
+(
+  int, "fprintf"
+, out, "%li(line=%i, offs=%i)", nchar+1L, nrow+1, ncol+1
+) // $extfcall
+) (* ignoret *)
+//
+end // end of [fprint_position]
+//
 (* ****** ****** *)
 
 (* end of [location.dats] *)

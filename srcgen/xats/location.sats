@@ -86,19 +86,16 @@ position_initize with position_initize_nrow_ncol_nchar
 //
 (* ****** ****** *)
 //
-(*
-##xatsopt_fprint_decl(fprint, position)
-##xatsopt_fprint_decl(fprint, location)
-*)
+fun
+print_position(&pos_t): void
+fun
+prerr_position(&pos_t): void
+fun
+fprint_position(FILEref, &pos_t): void
 //
-#if
-defined(COMPILE)
-#then
-#include
-"./CODEGEN/location_fprint_position_decl.hats"
-#include
-"./CODEGEN/location_fprint_location_decl.hats"
-#endif // end of [ifdef]
+overload print with print_position
+overload prerr with prerr_position
+overload fprint with fprint_position
 //
 (* ****** ****** *)
 

@@ -16,6 +16,7 @@ PATSOPT=$(PATSHOME)/bin/patsopt
 ######
 
 ARR=ar -r
+LDR=ld -r
 RMF=rm -f
 
 ######
@@ -35,8 +36,7 @@ $(OUTPUT)/xats-location_dats.c: xats-location/location.dats; $(PATSOPT) -o $@ -d
 #
 ######
 
-libatsopt:: \
-$(OUTPUT)/xats-location_dats.o; $(ARR) libatsopt.a $<
+libatsopt:: $(OUTPUT)/xats-location_dats.o; $(LDR) -o libatsopt.o $<
 
 ######
 
@@ -46,7 +46,7 @@ clean:: ; $(RMF) xats-*/*~
 ######
 
 cleanall:: clean
-cleanall:: ; $(RMF) libatsopt.a
+cleanall:: ; $(RMF) libatsopt.o
 cleanall:: ; $(RMF) $(OUTPUT)/*_?ats.o
 cleanall:: ; $(RMF) $(OUTPUT)/*_?ats.c
 
