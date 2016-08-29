@@ -11,10 +11,9 @@
 */
 
 /* ****** ****** */
-
-#\
-ifndef \
-XATSOPT_LOCATION_CATS
+//
+#ifndef XATSOPT_LOCATION_CATS
+#define XATSOPT_LOCATION_CATS
 //
 /* ****** ****** */
 //

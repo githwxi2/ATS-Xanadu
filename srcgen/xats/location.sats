@@ -39,29 +39,29 @@ typedef location = location_type
 fun
 position_get_nrow
   (&pos_t):<fun> int
-  = "ext#xatspot_position_get_nrow"
+  = "mac#xatspot_position_get_nrow"
 fun
 position_set_nrow
   (&pos_t, int):<fun> void
-  = "ext#xatspot_position_set_nrow"
+  = "mac#xatspot_position_set_nrow"
 //
 fun
 position_get_ncol
   (&pos_t):<fun> int
-  = "ext#xatspot_position_get_ncol"
+  = "mac#xatspot_position_get_ncol"
 fun
 position_set_ncol
   (&pos_t, int):<fun> void
-  = "ext#xatspot_position_set_ncol"
+  = "mac#xatspot_position_set_ncol"
 //
 fun
 position_get_nchar
   (&pos_t):<fun> lint
-  = "ext#xatspot_position_get_nchar"
+  = "mac#xatspot_position_get_nchar"
 fun
 position_set_nchar
   (&pos_t, lint):<fun> void
-  = "ext#xatspot_position_set_nchar"
+  = "mac#xatspot_position_set_nchar"
 //
 overload .nrow with position_get_nrow
 overload .nrow with position_set_nrow
