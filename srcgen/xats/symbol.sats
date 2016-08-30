@@ -54,7 +54,7 @@ print_symbol(sym_t): void
 fun{}
 prerr_symbol(sym_t): void
 fun{}
-fprint_symbol(FILEref, sym_t): void
+fprint_symbol: fprint_type(sym_t)
 //
 overload print with print_symbol
 overload prerr with prerr_symbol

@@ -25,14 +25,14 @@ datatype s2rtbas =
 (* ****** ****** *)
 //
 fun
-print_s2rtbas : (s2rtbas) -> void
+print_s2rtbas(s2rtbas): void
 fun
-prerr_s2rtbas : (s2rtbas) -> void
+prerr_s2rtbas(s2rtbas): void
 fun
-fprint_s2rtbas : fprint_type(s2rtbas)
+fprint_s2rtbas: fprint_type(s2rtbas)
 //
 fun{}
-fprint_s2rtbas_ : fprint_type(s2rtbas)
+fprint_s2rtbas_: fprint_type(s2rtbas)
 //
 overload print with print_s2rtbas
 overload prerr with prerr_s2rtbas
