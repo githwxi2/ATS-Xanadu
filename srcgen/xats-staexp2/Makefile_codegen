@@ -1,0 +1,46 @@
+######
+#
+# Makefile for xatsopt
+#
+######
+#
+# Author: Hongwei Xi
+# Start time: August, 2016
+# Authoremail: gmhwxi@gmail.com
+#
+######
+
+PATSCC=$(PATSHOME)/bin/patscc
+PATSOPT=$(PATSHOME)/bin/patsopt
+
+######
+
+all::
+
+######
+
+CODEGEN=CODEGEN
+COMPILE=COMPILE
+
+######
+#
+compile:: ; \
+$(PATSOPT) -DATS COMPILE -o \
+  $(COMPILE)/staexp2_print_dats.c -d staexp2_print.dats
+#
+######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_S2RTBAS --codegen-2 -o \
+  $(CODEGEN)/staexp2_fprint_s2rtbas_impl.hats -d staexp2_print.dats
+#
+######
+
+RMF=rm -f
+
+######
+
+cleanall:: ; $(RMF) CODEGEN/*.?ats
+cleanall:: ; $(RMF) COMPILE/*_?ats.c
+
+###### end of [Makefile] ######
