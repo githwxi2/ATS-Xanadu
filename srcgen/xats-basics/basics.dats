@@ -17,12 +17,12 @@
 //
 (* ****** ****** *)
 //
-staload
+#staload
 UN = "prelude/SATS/unsafe.sats"
 //
 (* ****** ****** *)
 
-staload "./../xats/basics.sats"
+#staload "./../xats/basics.sats"
 
 (* ****** ****** *)
 

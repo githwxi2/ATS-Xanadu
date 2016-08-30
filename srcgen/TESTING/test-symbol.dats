@@ -12,14 +12,14 @@
 //
 (* ****** ****** *)
 //
-staload
+#staload
 "./../xats/symbol.sats"
-staload
+#staload
 "./../xats-symbol/symbol.dats"
 //
 (* ****** ****** *)
 
-dynload "./../dynloadall.dats"
+#dynload "./../dynloadall.dats"
 
 (* ****** ****** *)
 

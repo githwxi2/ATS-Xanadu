@@ -82,7 +82,7 @@ depend:: ; $(PATSOPT) --output-a .depend --depgen -d xats-location/location.dats
 
 ######
 
-libatsopt:: $(OBJECT); $(LDR) -o lib/libatsopt.o $(OBJECT)
+libxatsopt:: $(OBJECT); $(LDR) -o lib/libxatsopt.o $(OBJECT)
 
 ######
 
@@ -92,7 +92,7 @@ clean:: ; $(RMF) xats-*/*~
 ######
 
 cleanall:: clean
-cleanall:: ; $(RMF) lib/libatsopt.o
+cleanall:: ; $(RMF) lib/libxatsopt.o
 cleanall:: ; $(RMF) $(OUTPUT)/*_?ats.o
 cleanall:: ; $(RMF) $(OUTPUT)/*_?ats.c
 

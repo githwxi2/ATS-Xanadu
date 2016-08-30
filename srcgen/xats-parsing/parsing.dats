@@ -7,7 +7,7 @@
 (* ****** ****** *)
 
 (*
-##xatsopt_set_filename("parsing_staexp0.dats")
+##xatsopt_set_filename("parsing.dats")
 *)
 
 (* ****** ****** *)
@@ -16,4 +16,4 @@
 
 (* ****** ****** *)
 
-(* end of [parsing_staexp0.dats] *)
+(* end of [parsing.dats] *)

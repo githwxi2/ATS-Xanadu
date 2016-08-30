@@ -12,7 +12,7 @@
 
 (* ****** ****** *)
 //
-staload
+#staload
 SYM = "./symbol.sats"
 //
 typedef symbol = $SYM.symbol

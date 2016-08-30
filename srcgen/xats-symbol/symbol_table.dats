@@ -11,13 +11,13 @@
 //
 (* ****** ****** *)
 //
-staload "libats/SATS/hashtbl_chain.sats"
+#staload "libats/SATS/hashtbl_chain.sats"
 //
-staload _(*anon*) = "libats/DATS/qlist.dats"
-staload _(*anon*) = "libats/DATS/hashfun.dats"
-staload _(*anon*) = "libats/DATS/linmap_list.dats"
+#staload _(*anon*) = "libats/DATS/qlist.dats"
+#staload _(*anon*) = "libats/DATS/hashfun.dats"
+#staload _(*anon*) = "libats/DATS/linmap_list.dats"
 //
-staload _(*anon*) = "libats/DATS/hashtbl_chain.dats"
+#staload _(*anon*) = "libats/DATS/hashtbl_chain.dats"
 //
 (* ****** ****** *)
 //

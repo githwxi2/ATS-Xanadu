@@ -24,7 +24,7 @@ all::
 
 ######
 
-LIBATSOPT_O=./../lib/libatsopt.o
+LIBXATSOPT_O=./../lib/libxatsopt.o
 
 ######
 #
@@ -32,7 +32,7 @@ all:: \
 test-symbol
 test-symbol: \
 test-symbol.dats; \
-  $(PATSCC2) -o test-symbol $< $(LIBATSOPT_O)
+  $(PATSCC2) -o test-symbol $< $(LIBXATSOPT_O)
 #
 regress:: test-symbol; ./$<
 cleanall:: ; $(RMF) test-symbol
@@ -43,7 +43,7 @@ all:: \
 test-location
 test-location: \
 test-location.dats; \
-  $(PATSCC2) -o test-location $< $(LIBATSOPT_O)
+  $(PATSCC2) -o test-location $< $(LIBXATSOPT_O)
 #
 regress:: test-location; ./$<
 cleanall:: ; $(RMF) test-location

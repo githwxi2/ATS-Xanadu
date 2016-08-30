@@ -8,18 +8,18 @@
 (* ****** ****** *)
 //
 #include
-"share/atspre_staload.hats"
+"share/atspre_#staload.hats"
 //
 (* ****** ****** *)
 //
-staload
+#staload
 "./../xats/location.sats"
-staload
+#staload
 "./../xats-location/location.dats"
 //
 (* ****** ****** *)
 
-dynload "./../dynloadall.dats"
+#dynload "./../dynloadall.dats"
 
 (* ****** ****** *)
 
