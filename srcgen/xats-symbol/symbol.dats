@@ -92,6 +92,33 @@ symbolopt_is_some
 //
 (* ****** ****** *)
 //
+implement
+{}(*tmp*)
+print_symbolopt
+  (opt) =
+  fprint_symbolopt(stdout_ref, opt)
+implement
+{}(*tmp*)
+prerr_symbolopt
+  (opt) =
+  fprint_symbolopt(stderr_ref, opt)
+//
+(* ****** ****** *)
+
+implement
+{}(*tmp*)
+fprint_symbolopt
+  (out, opt) =
+(
+//
+if iseqz(opt)
+  then fprint(out, "(none)")
+  else fprint_symbol(out, $UN.cast(opt))
+//
+) (* end of [fprint_symbolopt] *)
+
+(* ****** ****** *)
+//
 datatype
 symbol() =
 SYMBOL() of (

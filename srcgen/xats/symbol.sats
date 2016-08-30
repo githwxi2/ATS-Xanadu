@@ -18,10 +18,12 @@ typedef sym_t = symbol_type
 typedef symbol = symbol_type
 //
 (* ****** ****** *)
-
+//
 abstype symbolopt_type = ptr
-abstype symbolopt = symbolopt_type
-
+//
+typedef symopt = symbolopt_type
+typedef symbolopt = symbolopt_type
+//
 (* ****** ****** *)
 //
 fun
@@ -81,6 +83,19 @@ symbolopt_is_some : symbolopt -> bool
 //
 overload iseqz with symbolopt_is_none
 overload isneqz with symbolopt_is_some
+//
+(* ****** ****** *)
+//
+fun{}
+print_symbolopt(symopt): void
+fun{}
+prerr_symbolopt(symopt): void
+fun{}
+fprint_symbolopt(FILEref, symopt): void
+//
+overload print with print_symbolopt
+overload prerr with prerr_symbolopt
+overload fprint with fprint_symbolopt
 //
 (* ****** ****** *)
 

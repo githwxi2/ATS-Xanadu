@@ -38,7 +38,7 @@ all:: \
 $(OUTPUT)/dynloadall_dats.o
 #
 $(OUTPUT)/dynloadall_dats.o: \
-$(OUTPUT)/dynloadall_dats.c; $(PATSCC) -c -o $@ $<
+$(OUTPUT)/dynloadall_dats.c; $(PATSCC) -O2 -c -o $@ $<
 $(OUTPUT)/dynloadall_dats.c: dynloadall.dats; $(PATSOPT) -o $@ -d $<
 #
 ######
@@ -47,7 +47,7 @@ all:: \
 $(OUTPUT)/xats-symbol_dats.o
 #
 $(OUTPUT)/xats-symbol_dats.o: \
-$(OUTPUT)/xats-symbol_dats.c; $(PATSCC) -c -o $@ $<
+$(OUTPUT)/xats-symbol_dats.c; $(PATSCC) -O2 -c -o $@ $<
 $(OUTPUT)/xats-symbol_dats.c: xats-symbol/symbol.dats; $(PATSOPT) -o $@ -d $<
 #
 ######
@@ -56,7 +56,7 @@ all:: \
 $(OUTPUT)/xats-location_dats.o
 #
 $(OUTPUT)/xats-location_dats.o: \
-$(OUTPUT)/xats-location_dats.c; $(PATSCC) -c -o $@ $<
+$(OUTPUT)/xats-location_dats.c; $(PATSCC) -O2 -c -o $@ $<
 $(OUTPUT)/xats-location_dats.c: xats-location/location.dats; $(PATSOPT) -o $@ -d $<
 #
 ######

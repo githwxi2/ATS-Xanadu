@@ -30,8 +30,12 @@ main0(argc, argv) =
 val x0 = symbol_make("")
 val x1 = symbol_make("")
 //
-val () = println! ("x0.stamp = ", x0.stamp())
-val () = println! ("x1.stamp = ", x1.stamp())
+val () = assertloc (x0 = x1)
+//
+val x2 = symbol_make("xatsopt")
+//
+val () = println! ("x2.name = ", x2.name())
+val () = println! ("x2.stamp = ", x2.stamp())
 //
 } (* end of [main0] *)
 

@@ -14,6 +14,11 @@ PATSCC=$(PATSHOME)/bin/patscc
 PATSOPT=$(PATSHOME)/bin/patsopt
 
 ######
+#
+PATSCC2=\
+$(PATSCC) -I./.. -DATS_MEMALLOC_LIBC
+#
+######
 
 all::
 
@@ -27,8 +32,7 @@ all:: \
 test-symbol
 test-symbol: \
 test-symbol.dats; \
-$(PATSCC) -verbose \
--DATS_MEMALLOC_LIBC -I./.. -o test-symbol $< $(LIBATSOPT_O)
+  $(PATSCC2) -o test-symbol $< $(LIBATSOPT_O)
 #
 regress:: test-symbol; ./$<
 cleanall:: ; $(RMF) test-symbol
@@ -39,8 +43,7 @@ all:: \
 test-location
 test-location: \
 test-location.dats; \
-$(PATSCC) -verbose \
--DATS_MEMALLOC_LIBC -I./.. -o test-location $< $(LIBATSOPT_O)
+  $(PATSCC2) -o test-location $< $(LIBATSOPT_O)
 #
 regress:: test-location; ./$<
 cleanall:: ; $(RMF) test-location
