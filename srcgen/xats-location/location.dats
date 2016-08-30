@@ -25,6 +25,13 @@ UN = "prelude/SATS/unsafe.sats"
 #staload "./../xats/location.sats"
 
 (* ****** ****** *)
+//
+implement
+{}(*tmp*)
+position_is_dummy
+  (pos0) = isltz(pos0.nchar())
+//
+(* ****** ****** *)
 
 implement
 {}(*tmp*)

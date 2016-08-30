@@ -8,7 +8,7 @@
 (* ****** ****** *)
 //
 #include
-"share/atspre_#staload.hats"
+"share/atspre_staload.hats"
 //
 (* ****** ****** *)
 //
@@ -32,6 +32,9 @@ var pos1 : pos_t
 //
 val () = position_initize(pos0)
 val () = position_initize(pos1, 0, 0, 0L)
+//
+val () = assertloc(is_dummy(pos0))
+val () = assertloc(~is_dummy(pos1))
 //
 val () = println! ("pos0 = ", pos0)
 val () = println! ("pos1 = ", pos1)
