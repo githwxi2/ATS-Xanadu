@@ -76,10 +76,10 @@ overload compare with compare_symbol_symbol
 //
 (* ****** ****** *)
 //
-fun
-symbolopt_is_none : symbolopt -> bool
-fun
-symbolopt_is_some : symbolopt -> bool
+fun{}
+symbolopt_is_none : symopt -> bool
+fun{}
+symbolopt_is_some : symopt -> bool
 //
 overload iseqz with symbolopt_is_none
 overload isneqz with symbolopt_is_some

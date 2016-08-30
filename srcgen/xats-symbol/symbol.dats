@@ -39,7 +39,9 @@ in (* in-of-local *)
 
 implement
 symbol_stamp_new() = let
-  val n = !theStamp_ref in !theStamp_ref := n+1; n
+//
+val n = !theStamp_ref in !theStamp_ref := n+1; n
+//
 end // end of [symbol_stamp_new]
 
 end // end of [local]
@@ -84,9 +86,11 @@ compare_symbol_symbol
 (* ****** ****** *)
 //
 implement
+{}(*tmp*)
 symbolopt_is_none
   (opt) = iseqz($UN.cast2ptr(opt))
 implement
+{}(*tmp*)
 symbolopt_is_some
   (opt) = isneqz($UN.cast2ptr(opt))
 //
@@ -103,27 +107,28 @@ prerr_symbolopt
   (opt) =
   fprint_symbolopt(stderr_ref, opt)
 //
-(* ****** ****** *)
-
 implement
 {}(*tmp*)
 fprint_symbolopt
   (out, opt) =
 (
 //
-if iseqz(opt)
-  then fprint(out, "(none)")
-  else fprint_symbol(out, $UN.cast(opt))
+if
+iseqz(opt)
+then fprint(out, "(none)")
+else fprint_symbol(out, $UN.cast(opt))
 //
 ) (* end of [fprint_symbolopt] *)
-
+//
 (* ****** ****** *)
 //
 datatype
 symbol() =
-SYMBOL() of (
-  (*name:*)string, (*stamp:*)intGte(0)
-) (* symbol *)
+SYMBOL() of
+(
+  string // name
+, intGte(0) // stamp
+) (* datatype symbol *)
 //
 (* ****** ****** *)
 
