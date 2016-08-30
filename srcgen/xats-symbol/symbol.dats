@@ -26,15 +26,123 @@ staload "./../xats/symbol.sats"
 
 (* ****** ****** *)
 //
+extern
+fun
+symbol_stamp_new(): intGte(0)
+//
+local
+//
+val
+theStamp_ref = ref<intGte(0)>(0)
+//
+in (* in-of-local *)
+
 implement
+symbol_stamp_new() = let
+  val n = !theStamp_ref in !theStamp_ref := n+1; n
+end // end of [symbol_stamp_new]
+
+end // end of [local]
+//
+(* ****** ****** *)
+//
+implement
+{}(*tmp*)
 print_symbol
   (sym) =
   fprint_symbol(stdout_ref, sym)
 implement
+{}(*tmp*)
 prerr_symbol
   (sym) =
   fprint_symbol(stderr_ref, sym)
 //
+(* ****** ****** *)
+//
+implement
+{}(*tmp*)
+fprint_symbol
+  (out, sym) =
+  fprint_string(out, sym.name())
+//
+(* ****** ****** *)
+//
+implement
+eq_symbol_symbol
+  (x1, x2) =
+  (compare(x1, x2) = 0)
+implement
+neq_symbol_symbol
+  (x1, x2) =
+  (compare(x1, x2) != 0)
+//
+implement
+compare_symbol_symbol
+  (x1, x2) =
+  compare(x1.stamp(), x2.stamp())
+//
+(* ****** ****** *)
+//
+implement
+symbolopt_is_none
+  (opt) = iseqz($UN.cast2ptr(opt))
+implement
+symbolopt_is_some
+  (opt) = isneqz($UN.cast2ptr(opt))
+//
+(* ****** ****** *)
+//
+datatype
+symbol() =
+SYMBOL() of (
+  (*name:*)string, (*stamp:*)intGte(0)
+) (* symbol *)
+//
+(* ****** ****** *)
+
+assume symbol_type = symbol()
+
+(* ****** ****** *)
+//
+implement
+symbol_get_name
+  (sym) = let
+//
+val+SYMBOL(name, _) = sym in name
+//
+end // end of [symbol_get_name]
+//
+implement
+symbol_get_stamp
+  (sym) = let
+//
+val+SYMBOL(_, stamp) = sym in stamp
+//
+end // end of [symbol_get_stamp]
+//
+(* ****** ****** *)
+//
+extern
+fun
+__symbol_make_name
+  (name: string): symbol
+//
+implement
+__symbol_make_name
+  (name) =
+  SYMBOL(name, stamp) where
+{
+  val stamp = symbol_stamp_new()
+}
+//
+(* ****** ****** *)
+
+local
+//
+  #include "./symbol_table.dats"
+//
+in (*nothing*) end
+
 (* ****** ****** *)
 
 (* end of [symbol.dats] *)

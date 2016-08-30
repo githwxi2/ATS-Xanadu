@@ -12,12 +12,14 @@
 //
 (* ****** ****** *)
 //
-staload "./../xats/location.sats"
-staload "./../xats-location/location.dats"
+staload
+"./../xats/location.sats"
+staload
+"./../xats-location/location.dats"
 //
 (* ****** ****** *)
 
-dynload "./../xats-location/location.dats"
+dynload "./../dynloadall.dats"
 
 (* ****** ****** *)
 
