@@ -21,6 +21,12 @@
 
 (* ****** ****** *)
 //
+#staload
+FIL = "./filename.sats"
+typedef fil_t = $FIL.fil_t
+//
+(* ****** ****** *)
+//
 abst0ype
 position_t0ype =
 $extype"xatsopt_position_t"
@@ -30,7 +36,7 @@ typedef position = position_t0ype
 //
 (* ****** ****** *)
 //
-abstype location_type
+abstype location_type = ptr
 typedef loc_t = location_type
 typedef location = location_type
 //
@@ -93,16 +99,56 @@ position_initize with position_initize_nrow_ncol_nchar
 //
 (* ****** ****** *)
 //
-fun
+fun{}
 print_position(&RD(pos_t)): void
-fun
+fun{}
 prerr_position(&RD(pos_t)): void
-fun
+fun{}
 fprint_position(FILEref, &RD(pos_t)): void
 //
 overload print with print_position
 overload prerr with prerr_position
 overload fprint with fprint_position
+//
+(* ****** ****** *)
+//
+fun{}
+location_get_fname(loc_t): fil_t
+//
+fun{}
+location_get_beg_nrow(loc_t): int
+fun{}
+location_get_beg_ncol(loc_t): int
+fun{}
+location_get_beg_nchar(loc_t): lint
+//
+overload .beg_nrow with location_get_beg_nrow
+overload .beg_ncol with location_get_beg_ncol
+overload .beg_nchar with location_get_beg_nchar
+//
+fun{}
+location_get_end_nrow(loc_t): int
+fun{}
+location_get_end_ncol(loc_t): int
+fun{}
+location_get_end_nchar(loc_t): lint
+//
+overload .end_nrow with location_get_end_nrow
+overload .end_ncol with location_get_end_ncol
+overload .end_nchar with location_get_end_nchar
+//
+(* ****** ****** *)
+//
+fun
+location_combine(loc_t, loc_t): loc_t
+fun
+location_make_pos_pos(&pos_t, &pos_t): loc_t
+fun
+location_make_fil_pos_pos(fil_t, &pos_t, &pos_t): loc_t
+//
+overload + with location_combine
+overload location_make with location_make_pos_pos
+overload location_make with location_make_fil_pos_pos
 //
 (* ****** ****** *)
 

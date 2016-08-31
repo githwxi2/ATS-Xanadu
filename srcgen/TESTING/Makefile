@@ -49,6 +49,17 @@ regress:: test-location; ./$<
 cleanall:: ; $(RMF) test-location
 #
 ######
+#
+all:: \
+test-lexing
+test-lexing: \
+test-lexing.dats; \
+  $(PATSCC2) -o test-lexing $< $(LIBXATSOPT_O)
+#
+regress:: test-lexing; ./$<
+cleanall:: ; $(RMF) test-lexing
+#
+######
 
 testall:: all
 testall:: regress

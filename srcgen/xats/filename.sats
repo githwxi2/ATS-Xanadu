@@ -92,5 +92,9 @@ overload prerr with prerr_filenameopt
 overload fprint with fprint_filenameopt
 //
 (* ****** ****** *)
+//
+fun the_filenamelst_top(): fil_t
+//
+(* ****** ****** *)
 
 (* end of [filename.sats] *)

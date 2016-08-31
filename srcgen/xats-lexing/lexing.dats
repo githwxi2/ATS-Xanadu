@@ -25,6 +25,17 @@ UN = "prelude/SATS/unsafe.sats"
 #staload "./../xats/lexing.sats"
 
 (* ****** ****** *)
+
+local
+
+assume
+token_type =
+$rec{
+  token_loc= loc_t
+, token_node= token_node
+} (* end of [$rec] *)
+
+in (* in-of-local *)
 //
 implement
 {}(*tmp*)
@@ -33,22 +44,36 @@ implement
 {}(*tmp*)
 token_get_node(tok) = tok.token_node
 //
+end // end of [local]
+
 (* ****** ****** *)
 //
 implement
 {}(*tmp*)
 print_token
-  (tok) = fprint_token(stdout_ref, tok)
+  (tok) =
+  fprint_token(stdout_ref, tok)
 implement
 {}(*tmp*)
 prerr_token
-  (tok) = fprint_token(stderr_ref, tok)
+  (tok) =
+  fprint_token(stderr_ref, tok)
 //
 implement
 {}(*tmp*)
 fprint_token
-  (out, tok) = fprint_token_node(out, !tok)
+  (out, tok) = fprint_tnode(out, !tok)
 //
+(* ****** ****** *)
+
+local
+//
+#define COMPILE 1
+//
+#include "./lexing_print.dats"
+//
+in (*nothing*) end
+
 (* ****** ****** *)
 
 (* end of [lexing.dats] *)

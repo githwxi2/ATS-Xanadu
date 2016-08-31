@@ -15,6 +15,15 @@
 #staload "./../xats/lexing.sats"
 
 (* ****** ****** *)
+
+(*
+implement
+fprint_val<tnode> = fprint_tnode
+implement
+fprint_val<token> = fprint_token
+*)
+
+(* ****** ****** *)
 //
 #if
 defined(COMPILE)
@@ -23,6 +32,10 @@ defined(COMPILE)
 #include
 "./CODEGEN/lexing_fprint_tnode_impl.hats"
 //
+implement
+print_tnode(x0) = fprint_tnode(stdout_ref, x0)
+implement
+prerr_tnode(x0) = fprint_tnode(stderr_ref, x0)
 implement
 fprint_tnode(out, x0) = fprint_tnode_<>(out, x0)
 //
@@ -38,7 +51,7 @@ fprint_tnode(out, x0) = fprint_tnode_<>(out, x0)
 defined(FPRINT_TNODE)
 #then
 //
-#codegen2(fprint, tnode, fprint_tnode_)
+#codegen2(fprint, token_node, fprint_tnode_)
 //
 #endif // end of [ifdef]
 //

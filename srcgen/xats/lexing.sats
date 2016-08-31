@@ -18,7 +18,12 @@ LOC = "./location.sats"
 typedef loc_t = $LOC.loc_t
 //
 (* ****** ****** *)
-
+//
+abstype
+token_type = ptr
+typedef
+token = token_type
+//
 datatype
 token_node =
 //
@@ -34,13 +39,8 @@ token_node =
   | T_COLON of () // :
   | T_COLONLT of () // :<
 //
-where token =
-$rec{
-  token_loc= loc_t, token_node= token_node
-} (* end of [$rec] *)
-
 typedef tnode = token_node
-
+//
 (* ****** ****** *)
 //
 fun{}
@@ -56,9 +56,18 @@ overload .node with token_get_node
 (* ****** ****** *)
 //
 fun
+print_tnode(tnode): void
+fun
+prerr_tnode(tnode): void
+fun
 fprint_tnode : fprint_type(tnode)
+//
 fun{}
 fprint_tnode_ : fprint_type(tnode)
+//
+overload print with print_tnode
+overload prerr with prerr_tnode
+overload fprint with fprint_tnode
 //
 (* ****** ****** *)
 //

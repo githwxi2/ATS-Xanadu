@@ -6,10 +6,10 @@
 (* ****** ****** *)
 //
 #dynload "xats-symbol/symbol.dats"
-//
 #dynload "xats-filename/filename.dats"
-//
 #dynload "xats-location/location.dats"
+//
+#dynload "xats-lexing/lexing.dats"
 //
 (* ****** ****** *)
 
