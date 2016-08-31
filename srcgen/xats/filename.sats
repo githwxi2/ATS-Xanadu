@@ -81,6 +81,16 @@ overload isneqz with filenameopt_is_some
 (* ****** ****** *)
 //
 fun{}
+filenameopt_unsome_errloc
+  (filopt, errloc: string): fil_t
+//
+macdef
+filenameopt_unsome(opt) =
+filenameopt_unsome_errloc(,(opt), $mylocation)
+//
+(* ****** ****** *)
+//
+fun{}
 print_filenameopt(filopt): void
 fun{}
 prerr_filenameopt(filopt): void
@@ -93,7 +103,23 @@ overload fprint with fprint_filenameopt
 //
 (* ****** ****** *)
 //
-fun the_filenamelst_top(): fil_t
+absview
+the_filenamelst_push_v
+//
+fun
+the_filenamelst_top((*void*)): fil_t
+//
+fun
+the_filenamelst_pop
+  (the_filenamelst_push_v | (*void*)): fil_t
+fun
+the_filenamelst_push
+  (fil: fil_t): (the_filenamelst_push_v | void)
+//
+fun
+the_filenamelst_ppop(): filopt
+fun
+the_filenamelst_ppush(fil: fil_t): void
 //
 (* ****** ****** *)
 
