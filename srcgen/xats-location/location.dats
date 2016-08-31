@@ -21,14 +21,23 @@
 UN = "prelude/SATS/unsafe.sats"
 //
 (* ****** ****** *)
-
+//
 #staload
 FIL = "./../xats/filename.sats"
-
+overload
+fprint with $FIL.fprint_filename
+//
 (* ****** ****** *)
 
 #staload "./../xats/location.sats"
 
+(* ****** ****** *)
+//
+#staload
+_(*SYM*) = "./../xats-symbol/symbol.dats"
+#staload
+_(*FIL*) = "./../xats-filename/filename.dats"
+//
 (* ****** ****** *)
 //
 implement
@@ -148,6 +157,40 @@ implement
 {}(*tmp*)
 location_get_end_nchar(loc) = loc.end_nchar
 //
+//
+implement
+location_make_fil_pos_pos
+  (fil, pos1, pos2) = let
+//
+fun
+auxmain
+(
+  pos1: &pos_t, pos2: &pos_t
+) : location =
+(
+//
+$rec{
+//
+fname= fil
+,
+beg_nrow= pos1.nrow(),
+beg_ncol= pos1.ncol(),
+beg_nchar= pos1.nchar()
+,
+end_nrow= pos2.nrow(),
+end_ncol= pos2.ncol(),
+end_nchar= pos2.nchar()
+//
+} (* end of [$rec] *)
+//
+) (* end of [auxmain] *)
+in
+//
+if pos1.nchar() <= pos2.nchar()
+  then auxmain(pos1, pos2) else auxmain(pos2, pos1)
+//
+end // end of [implement]
+
 end // end of [local]
 
 (* ****** ****** *)
@@ -214,13 +257,63 @@ end // end of [if]
 //
 implement
 location_make_pos_pos
-  (pos1, pos2) =
+  (pos1, pos2) = let
+//
+val opt =
+  $FIL.the_filenamelst_top()
+//
+local
+implement
+$FIL.filenameopt_unsome$error<>
 (
+// argless
+) = prerrln!
+(
+  "INTERROR(xatsopt): location_make_pos_pos: NotSomeExn()"
+) (* end of [println!] *)
+in(*in-of-local*)
+val fil =
+  $FIL.filenameopt_unsome<>(opt)
+end // end of [local]
 //
-location_make
-  ($FIL.the_filenamelst_top(), pos1, pos2)
+in
+  location_make(fil, pos1, pos2)
+end (* end of [location_make_pos_pos] *)
 //
-) (* end of [location_make_pos_pos] *)
+(* ****** ****** *)
+//
+implement
+print_location
+  (loc) =
+  fprint_location(stdout_ref, loc)
+implement
+prerr_location
+  (loc) =
+  fprint_location(stderr_ref, loc)
+//
+implement
+fprint_location
+  (out, loc) = let
+//
+var pos1: pos_t
+var pos2: pos_t
+//
+val () =
+position_initize
+( pos1
+, loc.beg_nrow(), loc.beg_ncol(), loc.beg_nchar()
+) (* position_initize *)
+val () =
+position_initize
+( pos2
+, loc.end_nrow(), loc.end_ncol(), loc.end_nchar()
+) (* position_initize *)
+//
+in
+//
+fprint! (out, loc.fname(), ": ", pos1, " -- ", pos2)
+//
+end (* end of [fprint_location] *)
 //
 (* ****** ****** *)
 

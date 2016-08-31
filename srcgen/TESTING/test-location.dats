@@ -39,6 +39,11 @@ val () = assertloc(~is_dummy(pos1))
 val () = println! ("pos0 = ", pos0)
 val () = println! ("pos1 = ", pos1)
 //
+val loc01 =
+  location_make($FIL.the_filename_stdin, pos0, pos1)
+//
+val () = println! ("loc01 = ", loc01)
+//
 } (* end of [main0] *)
 
 (* ****** ****** *)

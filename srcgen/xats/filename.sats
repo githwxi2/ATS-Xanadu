@@ -32,6 +32,11 @@ typedef filopt = filenameopt_type
 typedef filenameopt = filenameopt_type
 //
 (* ****** ****** *)
+
+val the_filename_nil : fil_t
+val the_filename_stdin : fil_t
+
+(* ****** ****** *)
 //
 fun{}
 filename_get_givename(fil_t): string
@@ -71,6 +76,11 @@ overload fprint with fprint_filename
 (* ****** ****** *)
 //
 fun{}
+filename_none():<> filopt
+fun{}
+filename_some(fil_t):<> filopt
+//
+fun{}
 filenameopt_is_none : filopt -> bool
 fun{}
 filenameopt_is_some : filopt -> bool
@@ -81,12 +91,9 @@ overload isneqz with filenameopt_is_some
 (* ****** ****** *)
 //
 fun{}
-filenameopt_unsome_errloc
-  (filopt, errloc: string): fil_t
-//
-macdef
-filenameopt_unsome(opt) =
-filenameopt_unsome_errloc(,(opt), $mylocation)
+filenameopt_unsome(opt: filopt): fil_t
+fun{}
+filenameopt_unsome$error((*void*)): void
 //
 (* ****** ****** *)
 //
@@ -107,11 +114,11 @@ absview
 the_filenamelst_push_v
 //
 fun
-the_filenamelst_top((*void*)): fil_t
+the_filenamelst_top((*void*)): filopt
 //
 fun
 the_filenamelst_pop
-  (the_filenamelst_push_v | (*void*)): fil_t
+  (the_filenamelst_push_v | (*void*)): filopt
 fun
 the_filenamelst_push
   (fil: fil_t): (the_filenamelst_push_v | void)

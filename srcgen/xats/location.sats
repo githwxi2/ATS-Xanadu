@@ -115,6 +115,8 @@ overload fprint with fprint_position
 fun{}
 location_get_fname(loc_t): fil_t
 //
+overload .fname with location_get_fname
+//
 fun{}
 location_get_beg_nrow(loc_t): int
 fun{}
@@ -149,6 +151,19 @@ location_make_fil_pos_pos(fil_t, &pos_t, &pos_t): loc_t
 overload + with location_combine
 overload location_make with location_make_pos_pos
 overload location_make with location_make_fil_pos_pos
+//
+(* ****** ****** *)
+//
+fun
+print_location(loc_t): void
+fun
+prerr_location(loc_t): void
+fun
+fprint_location : fprint_type(loc_t)
+//
+overload print with print_location
+overload prerr with prerr_location
+overload fprint with fprint_location
 //
 (* ****** ****** *)
 

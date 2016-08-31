@@ -98,5 +98,11 @@ overload prerr with prerr_symbolopt
 overload fprint with fprint_symbolopt
 //
 (* ****** ****** *)
+//
+val the_symbol_nil : symbol (* "" *)
+val the_symbol_fil_stdin : symbol (* "__STDIN__" *)
+val the_symbol_fil_stdout : symbol (* "__STDOUT__" *)
+//
+(* ****** ****** *)
 
 (* end of [symbol.sats] *)

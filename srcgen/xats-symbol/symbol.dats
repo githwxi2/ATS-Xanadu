@@ -171,10 +171,20 @@ __symbol_make_name
 
 local
 //
-  #include "./symbol_table.dats"
+#include "./symbol_table.dats"
 //
 in (*nothing*) end
 
+(* ****** ****** *)
+//
+implement
+the_symbol_nil = symbol_make("")
+//
+implement
+the_symbol_fil_stdin = symbol_make("__STDIN__")
+implement
+the_symbol_fil_stdout = symbol_make("__STDOUT__")
+//
 (* ****** ****** *)
 
 (* end of [symbol.dats] *)
