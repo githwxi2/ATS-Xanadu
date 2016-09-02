@@ -51,7 +51,7 @@ overload .fullname with filename_get_fullname
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 filename_make_give_part_full
 (
   give: string, part: string, full: string
@@ -62,11 +62,11 @@ filename_make with filename_make_give_part_full
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 print_filename(fil_t): void
-fun{}
+fun
 prerr_filename(fil_t): void
-fun{}
+fun
 fprint_filename(FILEref, fil_t): void
 //
 overload print with print_filename
@@ -75,14 +75,14 @@ overload fprint with fprint_filename
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 filename_none():<> filopt
-fun{}
+fun
 filename_some(fil_t):<> filopt
 //
-fun{}
+fun
 filenameopt_is_none : filopt -> bool
-fun{}
+fun
 filenameopt_is_some : filopt -> bool
 //
 overload iseqz with filenameopt_is_none
@@ -97,11 +97,11 @@ filenameopt_unsome$error((*void*)): void
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 print_filenameopt(filopt): void
-fun{}
+fun
 prerr_filenameopt(filopt): void
-fun{}
+fun
 fprint_filenameopt(FILEref, filopt): void
 //
 overload print with print_filenameopt

@@ -14,8 +14,6 @@
 //
 #staload
 "./../xats/location.sats"
-#staload
-"./../xats-location/location.dats"
 //
 (* ****** ****** *)
 

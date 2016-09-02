@@ -49,11 +49,11 @@ symbol_make with symbol_make_name
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 print_symbol(sym_t): void
-fun{}
+fun
 prerr_symbol(sym_t): void
-fun{}
+fun
 fprint_symbol: fprint_type(sym_t)
 //
 overload print with print_symbol
@@ -76,9 +76,9 @@ overload compare with compare_symbol_symbol
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 symbolopt_is_none : symopt -> bool
-fun{}
+fun
 symbolopt_is_some : symopt -> bool
 //
 overload iseqz with symbolopt_is_none
@@ -86,11 +86,11 @@ overload isneqz with symbolopt_is_some
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 print_symbolopt(symopt): void
-fun{}
+fun
 prerr_symbolopt(symopt): void
-fun{}
+fun
 fprint_symbolopt(FILEref, symopt): void
 //
 overload print with print_symbolopt

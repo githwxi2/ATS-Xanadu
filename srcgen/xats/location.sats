@@ -78,17 +78,17 @@ overload .nchar with position_set_nchar
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 position_is_dummy(&RD(pos_t)): bool
 //
 overload is_dummy with position_is_dummy
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 position_initize_dummy
   (pos0: &pos_t? >> _):<!wrt> void
-fun{}
+fun
 position_initize_nrow_ncol_nchar
   (pos0: &pos_t? >> _, int, int, lint):<!wrt> void
 //
@@ -99,11 +99,11 @@ position_initize with position_initize_nrow_ncol_nchar
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 print_position(&RD(pos_t)): void
-fun{}
+fun
 prerr_position(&RD(pos_t)): void
-fun{}
+fun
 fprint_position(FILEref, &RD(pos_t)): void
 //
 overload print with print_position

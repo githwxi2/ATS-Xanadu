@@ -14,8 +14,6 @@
 //
 #staload
 "./../xats/lexing.sats"
-#staload
-"./../xats-lexing/lexing.dats"
 //
 (* ****** ****** *)
 

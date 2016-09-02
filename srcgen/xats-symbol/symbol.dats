@@ -49,12 +49,10 @@ end // end of [local]
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 print_symbol
   (sym) =
   fprint_symbol(stdout_ref, sym)
 implement
-{}(*tmp*)
 prerr_symbol
   (sym) =
   fprint_symbol(stderr_ref, sym)
@@ -62,7 +60,6 @@ prerr_symbol
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 fprint_symbol
   (out, sym) =
   fprint_string(out, sym.name())
@@ -86,29 +83,24 @@ compare_symbol_symbol
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 symbolopt_is_none
   (opt) = iseqz($UN.cast2ptr(opt))
 implement
-{}(*tmp*)
 symbolopt_is_some
   (opt) = isneqz($UN.cast2ptr(opt))
 //
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 print_symbolopt
   (opt) =
   fprint_symbolopt(stdout_ref, opt)
 implement
-{}(*tmp*)
 prerr_symbolopt
   (opt) =
   fprint_symbolopt(stderr_ref, opt)
 //
 implement
-{}(*tmp*)
 fprint_symbolopt
   (out, opt) =
 (

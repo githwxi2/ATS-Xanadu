@@ -28,12 +28,10 @@ UN = "prelude/SATS/unsafe.sats"
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 print_filename
   (fil) =
   fprint_filename(stdout_ref, fil)
 implement
-{}(*tmp*)
 prerr_filename
   (fil) =
   fprint_filename(stderr_ref, fil)
@@ -41,29 +39,18 @@ prerr_filename
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
-fprint_filename(out, fil) =
-  fprint_symbol(out, fil.fullname())
-//
-(* ****** ****** *)
-//
-implement
-{}(*tmp*)
 filename_none
   ((*void*)) = $UN.cast(the_null_ptr)
 //
 implement
-{}(*tmp*)
 filename_some(fil) = $UN.cast{filopt}(fil)
 //
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 filenameopt_is_none
   (opt) = iseqz($UN.cast2ptr(opt))
 implement
-{}(*tmp*)
 filenameopt_is_some
   (opt) = isneqz($UN.cast2ptr(opt))
 //
@@ -91,18 +78,15 @@ val () = filenameopt_unsome$error()
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 print_filenameopt
   (opt) =
   fprint_filenameopt(stdout_ref, opt)
 implement
-{}(*tmp*)
 prerr_filenameopt
   (opt) =
   fprint_filenameopt(stderr_ref, opt)
 //
 implement
-{}(*tmp*)
 fprint_filenameopt
   (out, opt) =
 (
@@ -156,10 +140,15 @@ filename_get_fullname
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 filename_make_give_part_full
   (give, part, full) =
   FILENAME(give, part, symbol_make(full))
+//
+(* ****** ****** *)
+//
+implement
+fprint_filename
+  (out, fil) = fprint_symbol(out, fil.fullname())
 //
 (* ****** ****** *)
 

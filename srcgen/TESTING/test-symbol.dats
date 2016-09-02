@@ -14,8 +14,6 @@
 //
 #staload
 "./../xats/symbol.sats"
-#staload
-"./../xats-symbol/symbol.dats"
 //
 (* ****** ****** *)
 

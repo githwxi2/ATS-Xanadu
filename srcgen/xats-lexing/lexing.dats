@@ -49,18 +49,15 @@ end // end of [local]
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 print_token
   (tok) =
   fprint_token(stdout_ref, tok)
 implement
-{}(*tmp*)
 prerr_token
   (tok) =
   fprint_token(stderr_ref, tok)
 //
 implement
-{}(*tmp*)
 fprint_token
   (out, tok) = fprint_tnode(out, !tok)
 //

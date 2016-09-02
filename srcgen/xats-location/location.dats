@@ -41,14 +41,12 @@ _(*FIL*) = "./../xats-filename/filename.dats"
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 position_is_dummy
   (pos0) = isltz(pos0.nchar())
 //
 (* ****** ****** *)
 
 implement
-{}(*tmp*)
 position_initize_dummy
   (pos0) =
 (
@@ -58,7 +56,6 @@ position_initize_dummy
 (* ****** ****** *)
 
 implement
-{}(*tmp*)
 position_initize_nrow_ncol_nchar
 (
   pos0, nrow, ncol, nchar
@@ -77,18 +74,15 @@ $UN.castview2void_at{pos_t}(view@pos0)
 (* ****** ****** *)
 //
 implement
-{}(*tmp*)
 print_position
   (pos) =
   fprint_position(stdout_ref, pos)
 implement
-{}(*tmp*)
 prerr_position
   (pos) =
   fprint_position(stderr_ref, pos)
 //
 implement
-{}(*tmp*)
 fprint_position
   (out, pos) = let
 //

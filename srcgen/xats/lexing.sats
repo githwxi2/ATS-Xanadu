@@ -71,11 +71,11 @@ overload fprint with fprint_tnode
 //
 (* ****** ****** *)
 //
-fun{}
+fun
 print_token(token): void
-fun{}
+fun
 prerr_token(token): void
-fun{}
+fun
 fprint_token : fprint_type(token)
 //
 overload print with print_token
