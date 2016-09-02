@@ -31,6 +31,25 @@ label_make with label_make_string
 (* ****** ****** *)
 //
 fun
+label_is_int : (label) -> bool
+fun
+label_is_string : (label) -> bool
+//
+(* ****** ****** *)
+//
+fun
+label_get_int
+  (lab: label): Option_vt(int)
+fun
+label_get_string
+  (lab: label): Option_vt(string)
+//
+overload .int with label_get_int
+overload .string with label_get_string
+//
+(* ****** ****** *)
+//
+fun
 print_label : print_type(label)
 fun
 prerr_label : prerr_type(label)

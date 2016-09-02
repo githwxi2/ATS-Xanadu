@@ -63,6 +63,36 @@ implement
 label_make_string(i) = LABstr(i)
 //
 (* ****** ****** *)
+
+implement
+label_is_int(lab) =
+(
+case+ lab of
+| LABint _ => true | LABstr _ => false
+) (* end of [label_is_int] *)
+implement
+label_is_string(lab) =
+(
+case+ lab of
+| LABint _ => false | LABstr _ => true
+) (* end of [label_is_string] *)
+
+(* ****** ****** *)
+//
+implement
+label_get_int(lab) =
+(
+case+ lab of
+| LABint(i) => Some_vt(i) | LABstr _ => None_vt()
+) (* end of [label_get_int] *)
+implement
+label_get_string(lab) =
+(
+case+ lab of
+| LABstr(s) => Some_vt(s) | LABint _ => None_vt()
+) (* end of [label_get_int] *)
+//
+(* ****** ****** *)
 //
 implement
 fprint_label
@@ -71,7 +101,7 @@ fprint_label
 case+ lab of
 | LABint(int) => fprint(out, int)
 | LABstr(str) => fprint(out, str)
-)
+) (* end of [fprint_label] *)
 //
 (* ****** ****** *)
 //
