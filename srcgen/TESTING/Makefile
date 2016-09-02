@@ -29,6 +29,17 @@ LIBXATSOPT_O=./../lib/libxatsopt.o
 ######
 #
 all:: \
+test-label
+test-label: \
+test-label.dats; \
+  $(PATSCC2) -o test-label $< $(LIBXATSOPT_O)
+#
+regress:: test-label; ./$<
+cleanall:: ; $(RMF) test-label
+#
+######
+#
+all:: \
 test-symbol
 test-symbol: \
 test-symbol.dats; \

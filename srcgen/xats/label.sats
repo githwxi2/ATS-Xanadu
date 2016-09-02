@@ -29,14 +29,18 @@ overload
 label_make with label_make_string
 //
 (* ****** ****** *)
-
+//
 fun
 print_label : print_type(label)
 fun
 prerr_label : prerr_type(label)
 fun
 fprint_label : fprint_type(label)
-
+//
+overload print with print_label
+overload prerr with prerr_label
+overload fprint with fprint_label
+//
 (* ****** ****** *)
 //
 fun

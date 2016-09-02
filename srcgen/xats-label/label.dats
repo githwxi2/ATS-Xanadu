@@ -41,15 +41,15 @@ implement
 lt_label_label
   (x1, x2) = (compare(x1, x2) < 0)
 implement
-lt_label_label
+lte_label_label
   (x1, x2) = (compare(x1, x2) <= 0)
 //
 (* ****** ****** *)
 //
 datatype
 label() =
-  | LABELint of int
-  | LABELstr of string
+  | LABint of int
+  | LABstr of string
 //
 (* ****** ****** *)
 
@@ -58,12 +58,19 @@ assume label_type = label()
 (* ****** ****** *)
 //
 implement
+label_make_int(i) = LABint(i)
+implement
+label_make_string(i) = LABstr(i)
+//
+(* ****** ****** *)
+//
+implement
 fprint_label
   (out, lab) =
 (
 case+ lab of
-| LABELint(int) => fprint(out, int)
-| LABELstr(str) => fprint(out, str)
+| LABint(int) => fprint(out, int)
+| LABstr(str) => fprint(out, str)
 )
 //
 (* ****** ****** *)
@@ -73,13 +80,13 @@ compare_label_label
   (x1, x2) =
 (
 case+ x1 of
-| LABELint(i1) =>
+| LABint(i1) =>
   (case+ x2 of
-   | LABELint(i2) => compare(i1, i2) | LABELstr(s2) => ~1
-  ) (* LABELint *)
-| LABELstr(s1) =>
+   | LABint(i2) => compare(i1, i2) | LABstr(s2) => ~1
+  ) (* LABint *)
+| LABstr(s1) =>
   (case+ x2 of
-   | LABELint(i2) =>  1 | LABELstr(s2) => compare(s1, s2) 
+   | LABint(i2) =>  1 | LABstr(s2) => compare(s1, s2) 
   )
 ) (* end of [compare_label_label] *)
 //
