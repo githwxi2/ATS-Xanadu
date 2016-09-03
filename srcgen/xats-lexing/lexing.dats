@@ -62,15 +62,23 @@ fprint_token
   (out, tok) = fprint_tnode(out, !tok)
 //
 (* ****** ****** *)
-
-local
 //
-#define COMPILE 1
+#if
+defined(COMPILE)
+#then
 //
-#include "./lexing_print.dats"
+#include
+"./CODEGEN/lexing_fprint_tnode_impl.hats"
 //
-in (*nothing*) end
-
+implement
+print_tnode(x0) = fprint_tnode(stdout_ref, x0)
+implement
+prerr_tnode(x0) = fprint_tnode(stderr_ref, x0)
+implement
+fprint_tnode(out, x0) = fprint_tnode_<>(out, x0)
+//
+#endif // end of [ifdef]
+//
 (* ****** ****** *)
 
 (* end of [lexing.dats] *)

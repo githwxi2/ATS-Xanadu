@@ -15,6 +15,11 @@
 #staload "./../xats/staexp2.sats"
 
 (* ****** ****** *)
+
+implement
+fprint_val<sym_t> = $SYM.fprint_symbol
+
+(* ****** ****** *)
 //
 #if
 defined(COMPILE)
@@ -25,20 +30,6 @@ defined(COMPILE)
 //
 implement
 fprint_s2rtbas(out, x0) = fprint_s2rtbas_<>(out, x0)
-//
-#endif // end of [ifdef]
-//
-(* ****** ****** *)
-//
-// HX: for codegen
-//
-(* ****** ****** *)
-//
-#if
-defined(FPRINT_S2RTBAS)
-#then
-//
-#codegen2(fprint, s2rtbas, fprint_s2rtbas_)
 //
 #endif // end of [ifdef]
 //

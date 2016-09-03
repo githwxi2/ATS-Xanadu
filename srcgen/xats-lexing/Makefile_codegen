@@ -20,19 +20,18 @@ all::
 ######
 
 CODEGEN=CODEGEN
-COMPILE=COMPILE
 
-######
-#
-compile:: ; \
-$(PATSOPT) -DATS COMPILE -o \
-  $(COMPILE)/lexing_print_dats.c -d lexing_print.dats
-#
 ######
 #
 codegen:: ; \
 $(PATSOPT) -DATS FPRINT_TNODE --codegen-2 -o \
-  $(CODEGEN)/lexing_fprint_tnode_impl.hats -d lexing_print.dats
+  $(CODEGEN)/lexing_fprint_tnode_impl.hats -d lexing_codegen.dats
+#
+######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_LXENODE --codegen-2 -o \
+  $(CODEGEN)/lexing_fprint_lxenode_impl.hats -d lexing_codegen.dats
 #
 ######
 
@@ -41,6 +40,5 @@ RMF=rm -f
 ######
 
 cleanall:: ; $(RMF) CODEGEN/*.?ats
-cleanall:: ; $(RMF) COMPILE/*_?ats.c
 
 ###### end of [Makefile] ######

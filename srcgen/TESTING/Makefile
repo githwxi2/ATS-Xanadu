@@ -51,6 +51,17 @@ cleanall:: ; $(RMF) test-symbol
 ######
 #
 all:: \
+test-counter
+test-counter: \
+test-counter.dats; \
+  $(PATSCC2) -o test-counter $< $(LIBXATSOPT_O)
+#
+regress:: test-counter; ./$<
+cleanall:: ; $(RMF) test-counter
+#
+######
+#
+all:: \
 test-location
 test-location: \
 test-location.dats; \

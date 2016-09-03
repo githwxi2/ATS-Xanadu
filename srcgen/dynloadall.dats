@@ -7,6 +7,7 @@
 //
 #dynload "xats-label/label.dats"
 #dynload "xats-symbol/symbol.dats"
+#dynload "xats-counter/counter.dats"
 #dynload "xats-filename/filename.dats"
 #dynload "xats-location/location.dats"
 //
