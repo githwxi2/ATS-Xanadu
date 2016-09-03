@@ -22,6 +22,7 @@ UN = "prelude/SATS/unsafe.sats"
 //
 (* ****** ****** *)
 
+#staload "./../xats/basics.sats"
 #staload "./../xats/lexing.sats"
 
 (* ****** ****** *)
@@ -61,6 +62,17 @@ implement
 fprint_token
   (out, tok) = fprint_tnode(out, !tok)
 //
+(* ****** ****** *)
+
+#define COMPILE 1
+
+(* ****** ****** *)
+
+implement
+fprint_val<fk>(out, fk) = fprint(out, "[funkind]")
+implement
+fprint_val<vk>(out, vk) = fprint(out, "[valkind]")
+
 (* ****** ****** *)
 //
 #if

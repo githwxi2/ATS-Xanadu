@@ -11,7 +11,13 @@
 #dynload "xats-filename/filename.dats"
 #dynload "xats-location/location.dats"
 //
+(* ****** ****** *)
+//
 #dynload "xats-lexing/lexing.dats"
+//
+(* ****** ****** *)
+//
+#dynload "xats-staexp2/staexp2.dats"
 //
 (* ****** ****** *)
 
