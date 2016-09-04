@@ -75,6 +75,51 @@ token_node =
 //
   | T_WHILE_ of (int) // while and while*
 //
+  | T_ADDRAT of () // addr@
+  | T_FOLDAT of () // fold@
+  | T_FREEAT of () // free@
+  | T_VIEWAT of () // view@
+//
+  | T_IDENT_alp_ of string // alnum
+  | T_IDENT_sym_ of string // symbol
+  | T_IDENT_arr_ of string // A[...]
+  | T_IDENT_tmp_ of string // A<...>
+  | T_IDENT_dlr_ of string // $alnum
+  | T_IDENT_srp_ of string // #alnum
+  | T_IDENT_ext_ of string // alnum!
+//
+  | T_LPAREN of () // (
+  | T_RPAREN of () // )
+  | T_LBRCKT of () // [
+  | T_RBRCKT of () // ]
+  | T_LBRACE of () // {
+  | T_RBRACE of () // }
+//
+  | T_ATLPAREN of () // @(
+  | T_ATLBRCKT of () // @[
+  | T_ATLBRACE of () // @{
+  | T_QTLPAREN of () // '(
+  | T_QTLBRCKT of () // '[
+  | T_QTLBRACE of () // '{
+  | T_HASHLPAREN of () // #(
+  | T_HASHLBRCKT of () // #[
+(*
+  | T_HASHLBRACE of () // #{
+*)
+//
+  | T_BCKQTLPAREN of () // `( // macro syntax
+  | T_COMMALPAREN of () // ,( // macro syntax
+  | T_PRCNTLPAREN of () // %( // macro syntax
+//
+  | T_COMMENT_line of () // line comment
+  | T_COMMENT_rest of () // rest-of-file
+  | T_COMMENT_block of () // block comment
+//
+  | T_ERR of () // for errors
+  | T_EOF of () // end-of-file
+  | T_EXTCODE_ of (int(*kind*), string) // external code
+//
+//
 typedef tnode = token_node
 //
 (* ****** ****** *)
@@ -148,7 +193,9 @@ val T_FIX : tnode // fixed-point
 and T_FIXAT : tnode // flat fixed-point
 //
 val T_FOLD : tnode
+(*
 and T_FOLDAT : tnode // fold@ : folding
+*)
 //
 val T_FOR : tnode // for: for-loop
 and T_FORSTAR : tnode // for*: anonotated for-loop
