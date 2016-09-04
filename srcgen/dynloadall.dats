@@ -13,6 +13,10 @@
 //
 (* ****** ****** *)
 //
+#dynload "xats-basics/basics.dats"
+//
+(* ****** ****** *)
+//
 #dynload "xats-lexing/lexing.dats"
 //
 (* ****** ****** *)

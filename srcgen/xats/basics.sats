@@ -67,6 +67,45 @@ typedef vk = valkind
 //
 (* ****** ****** *)
 //
+datatype
+casekind =
+  | CK_case of () // case
+  | CK_casepos of () // case+
+  | CK_caseneg of () // case-
+//
+// end of [caskind]
+//
+typedef ck = casekind
+//
+(* ****** ****** *)
+//
+datatype
+dcstkind =
+  | DCK_fun of ()
+  | DCK_val of ()
+  | DCK_praxi of ()
+  | DCK_prfun of ()
+  | DCK_prval of ()
+  | DCK_castfn of ()
+//
+// end of [dcstkind]
+//
+(* ****** ****** *)
+//
+datatype
+fxtykind =
+  | FXK_infix of () // infix
+  | FXK_infixl of () // infix left-assoc
+  | FXK_infixr of () // infix right-assoc
+  | FXK_prefix of () // prefix
+  | FXK_postfix of () // postfix
+//
+// end of [fxtykind]
+//
+typedef fxk = fxtykind
+//
+(* ****** ****** *)
+//
 fun
 print_funkind(funkind): void
 fun
@@ -96,6 +135,54 @@ fprint_valkind_ : fprint_type(valkind)
 overload print with print_valkind
 overload prerr with prerr_valkind
 overload fprint with fprint_valkind
+//
+(* ****** ****** *)
+//
+fun
+print_casekind(casekind): void
+fun
+prerr_casekind(casekind): void
+fun
+fprint_casekind : fprint_type(casekind)
+//
+fun{}
+fprint_casekind_ : fprint_type(casekind)
+//
+overload print with print_casekind
+overload prerr with prerr_casekind
+overload fprint with fprint_casekind
+//
+(* ****** ****** *)
+//
+fun
+print_dcstkind(dcstkind): void
+fun
+prerr_dcstkind(dcstkind): void
+fun
+fprint_dcstkind : fprint_type(dcstkind)
+//
+fun{}
+fprint_dcstkind_ : fprint_type(dcstkind)
+//
+overload print with print_dcstkind
+overload prerr with prerr_dcstkind
+overload fprint with fprint_dcstkind
+//
+(* ****** ****** *)
+//
+fun
+print_fxtykind(fxtykind): void
+fun
+prerr_fxtykind(fxtykind): void
+fun
+fprint_fxtykind : fprint_type(fxtykind)
+//
+fun{}
+fprint_fxtykind_ : fprint_type(fxtykind)
+//
+overload print with print_fxtykind
+overload prerr with prerr_fxtykind
+overload fprint with fprint_fxtykind
 //
 (* ****** ****** *)
 

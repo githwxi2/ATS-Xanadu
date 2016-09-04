@@ -34,6 +34,24 @@ $(PATSOPT) -DATS FPRINT_VALKIND --codegen-2 -o \
   $(CODEGEN)/basics_fprint_valkind_impl.hats -d basics_codegen.dats
 #
 ######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_CASEKIND --codegen-2 -o \
+  $(CODEGEN)/basics_fprint_casekind_impl.hats -d basics_codegen.dats
+#
+######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_DCSTKIND --codegen-2 -o \
+  $(CODEGEN)/basics_fprint_dcstkind_impl.hats -d basics_codegen.dats
+#
+######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_FXTYKIND --codegen-2 -o \
+  $(CODEGEN)/basics_fprint_fxtykind_impl.hats -d basics_codegen.dats
+#
+######
 
 RMF=rm -f
 
