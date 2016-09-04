@@ -119,5 +119,23 @@ fprint_fxtykind(out, x0) = fprint_fxtykind_<>(out, x0)
 #endif // end of [ifdef]
 //
 (* ****** ****** *)
+//
+#if
+defined(COMPILE)
+#then
+//
+#include
+"./CODEGEN/basics_fprint_funclo_impl.hats"
+//
+implement
+print_funclo(x0) = fprint_funclo(stdout_ref, x0)
+implement
+prerr_funclo(x0) = fprint_funclo(stderr_ref, x0)
+implement
+fprint_funclo(out, x0) = fprint_funclo_<>(out, x0)
+//
+#endif // end of [ifdef]
+//
+(* ****** ****** *)
 
 (* end of [basics.dats] *)

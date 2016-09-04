@@ -69,5 +69,15 @@ defined(FPRINT_FXTYKIND)
 #endif // end of [ifdef]
 //
 (* ****** ****** *)
+//
+#if
+defined(FPRINT_FUNCLO)
+#then
+//
+#codegen2(fprint, funclo, fprint_funclo_)
+//
+#endif // end of [ifdef]
+//
+(* ****** ****** *)
 
 (* end of [basics_codegen.dats] *)

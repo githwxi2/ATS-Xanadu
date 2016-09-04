@@ -106,6 +106,26 @@ typedef fxk = fxtykind
 //
 (* ****** ****** *)
 //
+#define CLOPTR ( 1)
+#define CLOREF (~1)
+//
+datatype funclo =
+//
+// function or closure
+//
+  | FUNCLOfun of () // function
+  | FUNCLOclo of int (*knd*) // closure: knd=1/0/~1: ptr/clo/ref
+//
+macdef
+FUNCLOcloptr = FUNCLOclo(CLOPTR)
+macdef
+FUNCLOcloref = FUNCLOclo(CLOREF)
+//
+typedef fcopt = Option(funclo)
+vtypedef fcopt_vt = Option_vt(funclo)
+//
+(* ****** ****** *)
+//
 fun
 print_funkind(funkind): void
 fun
@@ -183,6 +203,22 @@ fprint_fxtykind_ : fprint_type(fxtykind)
 overload print with print_fxtykind
 overload prerr with prerr_fxtykind
 overload fprint with fprint_fxtykind
+//
+(* ****** ****** *)
+//
+fun
+print_funclo(funclo): void
+fun
+prerr_funclo(funclo): void
+fun
+fprint_funclo : fprint_type(funclo)
+//
+fun{}
+fprint_funclo_ : fprint_type(funclo)
+//
+overload print with print_funclo
+overload prerr with prerr_funclo
+overload fprint with fprint_funclo
 //
 (* ****** ****** *)
 

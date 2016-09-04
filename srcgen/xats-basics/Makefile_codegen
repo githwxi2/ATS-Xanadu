@@ -52,6 +52,12 @@ $(PATSOPT) -DATS FPRINT_FXTYKIND --codegen-2 -o \
   $(CODEGEN)/basics_fprint_fxtykind_impl.hats -d basics_codegen.dats
 #
 ######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_FUNCLO --codegen-2 -o \
+  $(CODEGEN)/basics_fprint_funclo_impl.hats -d basics_codegen.dats
+#
+######
 
 RMF=rm -f
 
