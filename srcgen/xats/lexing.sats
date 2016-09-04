@@ -78,6 +78,38 @@ token_node =
 typedef tnode = token_node
 //
 (* ****** ****** *)
+//
+abstype
+lexerr_type
+typedef
+lexerr = lexerr_type
+//
+datatype
+lexerr_node =
+  | LXE_CHAR_oct of ()
+  | LXE_CHAR_hex of ()
+  | LXE_CHAR_unclose of ()
+//
+  | LXE_QUOTE_dangling of ()
+//
+  | LXE_STRING_unclose of ()
+  | LXE_STRING_char_oct of ()
+  | LXE_STRING_char_hex of ()
+//
+  | LXE_EXTCODE_unclose of ()
+//
+  | LXE_COMMENT_block_unclose of ()
+//
+  | LXE_DIGIT_oct_89 of (char)
+//
+  | LXE_FEXPONENT_empty of ()
+//
+  | LXE_UNSUPPORTED_char of (char)
+// end of [lexerr_node]
+//
+typedef lxenode = lexerr_node
+//
+(* ****** ****** *)
 
 val T_ABSPROP : tnode
 and T_ABSTYPE : tnode
@@ -164,36 +196,6 @@ fprint_tnode_ : fprint_type(tnode)
 overload print with print_tnode
 overload prerr with prerr_tnode
 overload fprint with fprint_tnode
-//
-(* ****** ****** *)
-//
-abstype lexerr_type
-typedef lexerr = lexerr_type
-//
-datatype
-lexerr_node =
-  | LXE_CHAR_oct of ()
-  | LXE_CHAR_hex of ()
-  | LXE_CHAR_unclose of ()
-//
-  | LXE_QUOTE_dangling of ()
-//
-  | LXE_STRING_unclose of ()
-  | LXE_STRING_char_oct of ()
-  | LXE_STRING_char_hex of ()
-//
-  | LXE_EXTCODE_unclose of ()
-//
-  | LXE_COMMENT_block_unclose of ()
-//
-  | LXE_DIGIT_oct_89 of (char)
-//
-  | LXE_FEXPONENT_empty of ()
-//
-  | LXE_UNSUPPORTED_char of (char)
-// end of [lexerr_node]
-//
-typedef lxenode = lexerr_node
 //
 (* ****** ****** *)
 //

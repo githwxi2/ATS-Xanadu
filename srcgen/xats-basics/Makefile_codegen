@@ -1,0 +1,44 @@
+######
+#
+# Makefile for xatsopt
+#
+######
+#
+# Author: Hongwei Xi
+# Start time: August, 2016
+# Authoremail: gmhwxi@gmail.com
+#
+######
+
+PATSCC=$(PATSHOME)/bin/patscc
+PATSOPT=$(PATSHOME)/bin/patsopt
+
+######
+
+all::
+
+######
+
+CODEGEN=CODEGEN
+
+######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_FUNKIND --codegen-2 -o \
+  $(CODEGEN)/basics_fprint_funkind_impl.hats -d basics_codegen.dats
+#
+######
+#
+codegen:: ; \
+$(PATSOPT) -DATS FPRINT_VALKIND --codegen-2 -o \
+  $(CODEGEN)/basics_fprint_valkind_impl.hats -d basics_codegen.dats
+#
+######
+
+RMF=rm -f
+
+######
+
+cleanall:: ; $(RMF) CODEGEN/*.?ats
+
+###### end of [Makefile] ######

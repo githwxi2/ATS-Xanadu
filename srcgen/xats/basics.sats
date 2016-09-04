@@ -42,6 +42,7 @@ funkind =
   | FK_praxi // proof axiom
 //
   | FK_castfn // casting fun
+//
 // end of [funkind]
 //
 typedef fk = funkind
@@ -59,9 +60,42 @@ valkind =
   | VK_mcval // mcval: for model-checking
 *)
   | VK_prval // prval: for theorem-proving
+//
 // end of [valkind]
-
+//
 typedef vk = valkind
+//
+(* ****** ****** *)
+//
+fun
+print_funkind(funkind): void
+fun
+prerr_funkind(funkind): void
+fun
+fprint_funkind : fprint_type(funkind)
+//
+fun{}
+fprint_funkind_ : fprint_type(funkind)
+//
+overload print with print_funkind
+overload prerr with prerr_funkind
+overload fprint with fprint_funkind
+//
+(* ****** ****** *)
+//
+fun
+print_valkind(valkind): void
+fun
+prerr_valkind(valkind): void
+fun
+fprint_valkind : fprint_type(valkind)
+//
+fun{}
+fprint_valkind_ : fprint_type(valkind)
+//
+overload print with print_valkind
+overload prerr with prerr_valkind
+overload fprint with fprint_valkind
 //
 (* ****** ****** *)
 

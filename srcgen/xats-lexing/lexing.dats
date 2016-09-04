@@ -27,6 +27,13 @@ UN = "prelude/SATS/unsafe.sats"
 
 (* ****** ****** *)
 
+implement
+fprint_val<fk> = fprint_funkind
+implement
+fprint_val<vk> = fprint_valkind
+
+(* ****** ****** *)
+
 local
 
 assume
@@ -65,13 +72,6 @@ fprint_token
 (* ****** ****** *)
 
 #define COMPILE 1
-
-(* ****** ****** *)
-
-implement
-fprint_val<fk>(out, fk) = fprint(out, "[funkind]")
-implement
-fprint_val<vk>(out, vk) = fprint(out, "[valkind]")
 
 (* ****** ****** *)
 //

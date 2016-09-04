@@ -26,4 +26,44 @@ UN = "prelude/SATS/unsafe.sats"
 
 (* ****** ****** *)
 
+#define COMPILE 1
+
+(* ****** ****** *)
+//
+#if
+defined(COMPILE)
+#then
+//
+#include
+"./CODEGEN/basics_fprint_funkind_impl.hats"
+//
+implement
+print_funkind(x0) = fprint_funkind(stdout_ref, x0)
+implement
+prerr_funkind(x0) = fprint_funkind(stderr_ref, x0)
+implement
+fprint_funkind(out, x0) = fprint_funkind_<>(out, x0)
+//
+#endif // end of [ifdef]
+//
+(* ****** ****** *)
+//
+#if
+defined(COMPILE)
+#then
+//
+#include
+"./CODEGEN/basics_fprint_valkind_impl.hats"
+//
+implement
+print_valkind(x0) = fprint_valkind(stdout_ref, x0)
+implement
+prerr_valkind(x0) = fprint_valkind(stderr_ref, x0)
+implement
+fprint_valkind(out, x0) = fprint_valkind_<>(out, x0)
+//
+#endif // end of [ifdef]
+//
+(* ****** ****** *)
+
 (* end of [basics.dats] *)

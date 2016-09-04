@@ -35,6 +35,8 @@ OBJECT += $(OUTPUT)/xats-counter_dats.o
 OBJECT += $(OUTPUT)/xats-filename_dats.o
 OBJECT += $(OUTPUT)/xats-location_dats.o
 #
+OBJECT += $(OUTPUT)/xats-basics_dats.o
+#
 OBJECT += $(OUTPUT)/xats-lexing_dats.o
 #
 OBJECT += $(OUTPUT)/xats-staexp2_dats.o
@@ -96,6 +98,15 @@ $(OUTPUT)/xats-location_dats.c: xats-location/location.dats; $(PATSOPT) -o $@ -d
 ######
 #
 all:: \
+$(OUTPUT)/xats-basics_dats.o
+#
+$(OUTPUT)/xats-basics_dats.o: \
+$(OUTPUT)/xats-basics_dats.c; $(PATSCC) -O2 -c -o $@ $<
+$(OUTPUT)/xats-basics_dats.c: xats-basics/basics.dats; $(PATSOPT) -o $@ -d $<
+#
+######
+#
+all:: \
 $(OUTPUT)/xats-lexing_dats.o
 #
 $(OUTPUT)/xats-lexing_dats.o: \
@@ -128,6 +139,8 @@ depend:: ; $(PATSOPT) --output-a .depend --depgen -d xats-symbol/symbol.dats
 depend:: ; $(PATSOPT) --output-a .depend --depgen -d xats-counter/counter.dats
 depend:: ; $(PATSOPT) --output-a .depend --depgen -d xats-filename/filename.dats
 depend:: ; $(PATSOPT) --output-a .depend --depgen -d xats-location/location.dats
+#
+depend:: ; $(PATSOPT) --output-a .depend --depgen -d xats-basics/basics.dats
 #
 depend:: ; $(PATSOPT) --output-a .depend --depgen -d xats-lexing/lexing.dats
 #
