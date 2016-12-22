@@ -12,12 +12,12 @@
 
 (* ****** ****** *)
 
-%{$
+%{#
 //
 #include \
 "./xats-location/location.cats"
 //
-%} // end of [%{$]
+%} // end of [%{#]
 
 (* ****** ****** *)
 //
