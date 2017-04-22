@@ -23,11 +23,12 @@ abstype s2rtdat
 
 (* ****** ****** *)
 //
-datatype s2rtbas =
-  | S2RTBASpre of (sym_t) // predicative: int, bool, ...
-  | S2RTBASimp of (int(*knd*), sym_t) // impredicative sorts
+datatype
+s2rtbas =
+| S2RTBASpre of (sym_t) // predicative: int, bool, ...
+| S2RTBASimp of (int(*knd*), sym_t) // impredicative sorts
 (*
-  | S2RTBASdat of (s2rtdat) // for user-defined datasorts
+| S2RTBASdat of (s2rtdat) // for user-defined datasorts
 *)
 //
 (* ****** ****** *)
