@@ -1,0 +1,21 @@
+(* ****** ****** *)
+//
+// HX-2017-12-11:
+//
+// For collecting some thoughts
+// on ATS-Xanadu (that is, ATS3)
+//
+(* ****** ****** *)
+//
+// HX-2017-12-11:
+//
+extern
+fun
+{a:type}{n:nat}
+list_tabulate(int(n)): list(a, n)
+and
+list_tabulate$fopr(i: natLt(n)): (a)
+//
+(* ****** ****** *)
+
+(* end of [NOTES.txt] *)
