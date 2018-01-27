@@ -1,9 +1,66 @@
 (* ****** ****** *)
+
+Dao's anti-movement!!!
+
+(* ****** ****** *)
+//
+// HX-2018-01-27:
+//
+Using type for t@ype
+Using tbox for boxed type
+//
+Deprecate:
+abst@ype, absvt@ype, etc.
+//
+abstbox mytype // boxed
+abstype mytype // unboxed
+//
+abst@ype = atstype
+absvt@ype = abstype
+//
+xatscc ... // Using ATS3 syntax
+xatscc --ATS2 ... // Using ATS2 syntax
+//
+Flags for choosing prelude libraries?
+Flags for assigning types to constants?
+//
+Support extensible syntax?
+//
+(* ****** ****** *)
+//
+// HX-2018-01-13:
+//
+// Staging support for handling
+// arguments that are known at compile-time
+//
+// val rep =
+// sprintf(##format("x = %i and y = %s"))(1)("A")
+//
+(* ****** ****** *)
+//
+// HX-2017-12-14:
+//
+// Should we bring the
+// interpreter for ATS back?
+//
+(* ****** ****** *)
 //
 // HX-2017-12-11:
 //
 // For collecting some thoughts
 // on ATS-Xanadu (that is, ATS3)
+//
+(* ****** ****** *)
+//
+// HX-2017-12-11:
+//
+Yes, meta-programming! But how?!
+//
+(* ****** ****** *)
+//
+// HX-2017-12-11:
+//
+`Yes, aggressive code mobility. But how?!
 //
 (* ****** ****** *)
 //
@@ -16,6 +73,29 @@ list_tabulate(int(n)): list(a, n)
 and
 list_tabulate$fopr(i: natLt(n)): (a)
 //
+(* ****** ****** *)
+//
+extern
+fun
+{a:type}
+list_tabulate_fun
+{n:nat}
+( n0: int(n)
+, f0: natLt(n) -> a): list(a, n)
+//
+implement
+{a}(*tmp*)
+list_tabulate_fun
+{n}(n0, f0) = let
+//
+implement
+list_tabulate$fopr<a><n>
+  (i) = f0(i)
+//
+in
+  list_tabulate<a><n>(n0)
+end // end of [list_tabulate_fun]
+
 (* ****** ****** *)
 
 (* end of [NOTES.txt] *)
