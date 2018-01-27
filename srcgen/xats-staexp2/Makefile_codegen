@@ -25,7 +25,7 @@ CODEGEN=CODEGEN
 #
 codegen:: ; \
 $(PATSOPT) -DATS FPRINT_S2RTBAS --codegen-2 -o \
-  $(CODEGEN)/staexp2_fprint_s2rtbas_impl.hats -d staexp2_codegen.dats
+$(CODEGEN)/staexp2_fprint_s2rtbas_impl.hats -d staexp2_codegen.dats
 #
 ######
 

@@ -25,13 +25,13 @@ CODEGEN=CODEGEN
 #
 codegen:: ; \
 $(PATSOPT) -DATS FPRINT_TNODE --codegen-2 -o \
-  $(CODEGEN)/lexing_fprint_tnode_impl.hats -d lexing_codegen.dats
+$(CODEGEN)/lexing_fprint_tnode_impl.hats -d lexing_codegen.dats
 #
 ######
 #
 codegen:: ; \
 $(PATSOPT) -DATS FPRINT_LXENODE --codegen-2 -o \
-  $(CODEGEN)/lexing_fprint_lxenode_impl.hats -d lexing_codegen.dats
+$(CODEGEN)/lexing_fprint_lxenode_impl.hats -d lexing_codegen.dats
 #
 ######
 
