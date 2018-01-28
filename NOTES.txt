@@ -24,7 +24,28 @@ xatscc --ATS2 ... // Using ATS2 syntax
 Flags for choosing prelude libraries?
 Flags for assigning types to constants?
 //
-Support extensible syntax?
+Keywords for declarations:
+  val
+  rec x =
+  lam () => x() + 1
+  fn
+  fnt
+  fnx
+  fun
+  prf val
+  prf fn
+  prf fnt
+  prf fun
+//
+Support for utf-8 identifiers?
+Support extensible syntax? // print!, fprint!, ...
+How about something like let! as follows:
+let!
+  x = x + 1
+  y = x + x
+in
+  // ....
+end // end of [let!]
 //
 (* ****** ****** *)
 //
