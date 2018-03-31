@@ -13,10 +13,10 @@ HX-2016-08-27: Let us get started!!!
 
 Some objectives:
 
-1. ATS-Xanadu should be able to bootstrap,
+1. ATS2-Xanadu should be able to bootstrap,
    that is, it should be able to compile itself.
 
-2. ATS-Xanadu should make extensive use of various
+2. ATS2-Xanadu should make extensive use of various
    forms of meta-programming, including
    codegen2-absrec, codegen2-fprint, etc.
 
