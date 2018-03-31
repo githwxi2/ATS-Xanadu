@@ -197,7 +197,9 @@ val T_FIX : tnode // fixed-point
 and T_FIXAT : tnode // flat fixed-point
 //
 val T_FOLD : tnode
+(*
 and T_FOLDAT : tnode // fold@ : folding
+*)
 //
 val T_FOR : tnode // for: for-loop
 and T_FORSTAR : tnode // for*: anonotated for-loop
