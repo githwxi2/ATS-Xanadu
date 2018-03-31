@@ -158,9 +158,10 @@ typedef lxenode = lexerr_node
 
 val T_ABSPROP : tnode
 and T_ABSTYPE : tnode
-and T_ABST0YPE : tnode
 and T_ABSVIEW : tnode
 and T_ABSVTYPE : tnode
+
+val T_ABST0YPE : tnode
 and T_ABSVT0YPE : tnode
 
 (* ****** ****** *)
@@ -179,10 +180,13 @@ and T_DATAVTYPE : tnode
 (* ****** ****** *)
 //
 val T_FN : tnode // fn: non-recursive
+and T_FN0 : tnode // fn0: non-recursive
+and T_FN1 : tnode // fn1: tail-recursive
 and T_FNX : tnode // fnx: tail-recursive
 and T_FUN : tnode // fun: generally recursive
 //
 val T_PRFN : tnode // prfn: non-recursive
+and T_PRFN0 : tnode // prfn: non-recursive
 and T_PRFUN : tnode // prfun: generally recursive
 //
 val T_PRAXI : tnode // praxi/prfun: axiom/function
@@ -193,9 +197,7 @@ val T_FIX : tnode // fixed-point
 and T_FIXAT : tnode // flat fixed-point
 //
 val T_FOLD : tnode
-(*
 and T_FOLDAT : tnode // fold@ : folding
-*)
 //
 val T_FOR : tnode // for: for-loop
 and T_FORSTAR : tnode // for*: anonotated for-loop

@@ -4,6 +4,78 @@ Dao's anti-movement!!!
 
 (* ****** ****** *)
 //
+// HX-2018-02-14:
+//
+implicit coercion: x <: int
+//
+(* ****** ****** *)
+//
+// HX-2018-02-12:
+//
+extern
+fun
+{a:type}
+list_length : {n:int} list(a, n) -> int(n)
+
+implement
+{a}(*tmp*)
+list_length(nil()) = 0
+|
+list_length(cons(_, xs)) = 1 + list_length<a>(xs)
+//
+(* ****** ****** *)
+//
+// HX-2018-02-11:
+//
+Support for
+highlighting the types of subexpressions
+//
+(* ****** ****** *)
+(*
+HX-2018-02-10
+*)
+fun
+myfun() = let
+//
+  x = 1;
+  y = 1 + 2;
+  z = x * y;
+//
+extern
+fun
+foo() = #macdef"%"
+
+extern
+fun
+{a:type}
+foo(nil()) = 0
+|
+foo(cons(_, xs)) = 1 + f(x)
+withtype
+{n:int} .<n>. (list(a, n)) -> int(n)
+
+in
+  println! ("x = ", x, " and y = ", y, " and z = ", z)
+end
+//
+(* ****** ****** *)
+//
+// HX-2018-02-10:
+//
+Some support for
+implicit casting of integers
+For instance, using 0 for size_t
+//
+(* ****** ****** *)
+//
+// HX-2018-02-06:
+//
+A flag of some sort to
+determine whether default templates
+are to be used to raise exceptions?
+//
+(* ****** ****** *)
+//
 // HX-2018-01-27:
 //
 Using type for t@ype

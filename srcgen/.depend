@@ -1,0 +1,8 @@
+xats-label/label_dats.o : xats/label.sats
+xats-symbol/symbol_dats.o : xats/symbol.sats xats-symbol/symbol_table.dats
+xats-counter/counter_dats.o : xats/counter.sats
+xats-filename/filename_dats.o : xats/symbol.sats xats/filename.sats
+xats-location/location_dats.o : xats/filename.sats xats/location.sats xats-symbol/symbol.dats xats-filename/filename.dats
+xats-basics/basics_dats.o : xats/basics.sats
+xats-lexing/lexing_dats.o : xats/basics.sats xats/lexing.sats
+xats-staexp2/staexp2_dats.o : xats/staexp2.sats xats-staexp2/staexp2_print.dats
